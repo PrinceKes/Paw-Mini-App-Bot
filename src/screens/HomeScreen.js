@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaPaw } from 'react-icons/fa';
 import { IoWalletOutline } from 'react-icons/io5';
-import { FaHome, FaTrophy, FaUserFriends, FaWallet } from 'react-icons/fa';
 import backgroundImg from '../assets/background.jpg';
-
-// Initialize Telegram WebApp if available
-const tg = window.Telegram.WebApp;
 
 const HomeScreen = () => {
   const [selected, setSelected] = useState('home');
+  const [tg, setTg] = useState(null);
 
-  // Handle wallet button click
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      setTg(window.Telegram.WebApp);  // Initialize tg if available
+    }
+  }, []);
+
   const handleWalletConnect = () => {
     if (tg) {
-      tg.openInvoice({  // Sample function for an invoice or redirection
-        slug: 'wallet_connection', // Use your wallet connection path here
-      });
-      // You could also use tg.openLink for a direct wallet connection URL
+      tg.openLink('https://your-wallet-connection-url.com'); // Use a direct URL for testing
     } else {
       alert("Telegram WebApp is not available. Please open this in the Telegram app.");
     }
@@ -51,6 +50,7 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
+
 
 // Styled Components
 const Container = styled.div`
