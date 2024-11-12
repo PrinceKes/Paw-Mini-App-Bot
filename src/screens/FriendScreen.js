@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaPaw } from 'react-icons/fa';
+import backgroundImg from '../assets/background.jpg';
 
 const FriendScreen = () => {
   return (
@@ -35,7 +36,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0e0e10;
+  background-image: url(${backgroundImg});
   color: white;
   height: 100vh;
   padding: 20px;
