@@ -16,7 +16,7 @@ const HomeScreen = () => {
 
   const handleWalletConnect = () => {
     if (tg) {
-      tg.openLink('https://your-wallet-connection-url.com'); // Use a direct URL for testing
+      tg.openLink('https://tonkeeper.app/ton-connect');
     } else {
       alert("Telegram WebApp is not available. Please open this in the Telegram app.");
     }
